@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styles/SearchBar.css";
 
-const MOVIE_SEARCH_API = "http://www.omdbapi.com/?t=";
+const MOVIE_SEARCH_API = "https://www.omdbapi.com/?t=";
 const API_KEY = "&apikey=";
 const API_VALUE = "4c861d5";
 
