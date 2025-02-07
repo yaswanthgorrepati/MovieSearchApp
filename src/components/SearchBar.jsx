@@ -3,6 +3,7 @@ import "../styles/Searchbar.css";
 
 const MOVIE_SEARCH_API = "http://www.omdbapi.com/?t=";
 const API_KEY = "&apikey=";
+const API_VALUE = "4c861d5";
 
 const SearchBar = (props) => {
   const [movieTitle, setMovieTitle] = useState();
