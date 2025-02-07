@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../styles/Searchbar.css";
 
 const MOVIE_SEARCH_API = "http://www.omdbapi.com/?t=";
 const API_KEY = "&apikey=";
@@ -28,10 +29,20 @@ const SearchBar = (props) => {
   };
 
   return (
-    <div>
+    <div className="searchbar-container">
       <form onSubmit={searchMovieByTitle}>
-        <input type="text" onChange={(e) => setMovieTitle(e.target.value)} />
-        <input type="submit" value="Search" />
+        <label for="floatingInput">Enter movie name!</label>
+        <input
+          type="text"
+          onChange={(e) => setMovieTitle(e.target.value)}
+          class="form-control"
+          id="floatingInput"
+          placeholder="Avengers"
+        />
+
+        <button type="submit" className="btn btn-primary">
+          Search
+        </button>
       </form>
     </div>
   );

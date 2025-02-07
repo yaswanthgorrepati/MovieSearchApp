@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import SearchBar from "../components/SearchBar";
 import MovieCard from "../components/MovieCard";
 import Favorites from "../components/Favorites";
+import "../styles/Home.css";
 
 const Home = () => {
   const [movieDetails, setMovieDetails] = useState({
@@ -46,20 +47,34 @@ const Home = () => {
   //   }, [movieDetails]);
 
   return (
-    <div>
-      <SearchBar movies={sendMoviesdata}></SearchBar>
-      {movieDetails.Title && (
-        <MovieCard
-          movieDetails={movieDetails}
-          favourite={toggleFavourite}
-        ></MovieCard>
+    <div className="home-container">
+      <div className="search-container">
+        <SearchBar
+          movies={sendMoviesdata}
+          className="centered-container"
+        ></SearchBar>
+      </div>
+
+      {movieDetails.Title ? (
+        movieDetails.Title && (
+          <div className="movie-card-container">
+            <MovieCard
+              movieDetails={movieDetails}
+              favourite={toggleFavourite}
+            ></MovieCard>
+          </div>
+        )
+      ) : (
+        <p className="movie-not-found"> Movie not found!</p>
       )}
 
-      <h2>FavouriteList</h2>
-      <Favorites
-        favouriteMovies={favouriteMovies}
-        toggleFavourite={toggleFavourite}
-      ></Favorites>
+      <h2 className="favorites-header">FavouriteList</h2>
+      <div className="favorites-container">
+        <Favorites
+          favouriteMovies={favouriteMovies}
+          toggleFavourite={toggleFavourite}
+        ></Favorites>
+      </div>
     </div>
   );
 };
